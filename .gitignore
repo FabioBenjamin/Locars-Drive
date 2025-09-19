@@ -1,0 +1,15 @@
+# Arquivos de ambiente virtual
+.venv/
+/venv/
+
+# Arquivos de cache e de byte-code
+__pycache__/
+*.pyc
+
+# Arquivos de IDEs e do sistema operacional
+.vscode/
+.DS_Store
+
+# Arquivos de logs e dados temporários
+*.log
+*.sqlite3
