@@ -6,7 +6,7 @@
     <title>Locars Drive</title>
     <!-- Fonte Inter com pesos 400, 600, 700 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
 <body>
 
@@ -125,6 +125,6 @@
         </div>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 </body>
 </html>
