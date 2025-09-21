@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{% block title %}{{ titulo_pagina }}{% endblock %}</title>
+    <title>Locars Drive</title>
     <!-- Fonte Inter com pesos 400, 600, 700 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -59,13 +59,49 @@
             </nav>
         </nav>
     </header>
+    
+    <!-- HERO -->
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="conteudo_hero">
+            <h1>O serviço perfeito para você.</h1>
+            <form class="form_reserva" action="{{ url_for('veiculos.pesquisar_veiculos') }}" method="GET">
+                <input type="text" name="local_retirada" placeholder="Local de retirada" required />
+                <input type="date" name="data_retirada" aria-label="Data de retirada" required />
+                <input type="time" name="hora_retirada" aria-label="Hora de retirada" required />
+                <button type="submit">Buscar Veículo</button>
+            </form>
+        </div>
+    </section>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        {% block content %}
-
-        {% endblock %}
-    </main>
+    <!-- NAVEGAÇÃO SECUNDÁRIA -->
+    <nav class="navegacao_secundaria" aria-label="Navegação de categorias">
+        <button class="botao_navegacao">Explorar</button>
+        <button class="botao_navegacao">Aluguel</button>
+        <button class="botao_navegacao">Aluguel Mensal</button>
+        <button class="botao_navegacao">Por Assinatura</button>
+        <button class="botao_navegacao">Sem Habilitação</button>
+        <button class="botao_navegacao">Frotas</button>
+    </nav>
+    
+    <!-- FROTA -->
+    <section class="frota" aria-label="Seção de frota de veículos">
+        <h2>Conheça nossa frota</h2>
+        <div class="carros">
+            <div class="carro" tabindex="0">
+                <img src="https://via.placeholder.com/350x180?text=Carro+Econômico" alt="Carro Econômico" />
+                <p>Carro Econômico</p>
+            </div>
+            <div class="carro" tabindex="0">
+                <img src="https://via.placeholder.com/350x180?text=SUV+Conforto" alt="SUV Conforto" />
+                <p>SUV Conforto</p>
+            </div>
+            <div class="carro" tabindex="0">
+                <img src="https://via.placeholder.com/350x180?text=Luxo+Premium" alt="Luxo Premium" />
+                <p>Luxo Premium</p>
+            </div>
+        </div>
+    </section>
 
     <!-- FOOTER -->
     <footer>
@@ -89,6 +125,6 @@
         </div>
     </footer>
 
-    <script src="{{ url_for('static', filename='js/menu.js') }}" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
