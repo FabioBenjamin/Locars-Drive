@@ -13,7 +13,7 @@ from app.routes.devolucao import devolucao_bp
 
 def create_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = 'sua_chave_secreta_aqui'
+    app.config['SECRET_KEY'] = 'claudete_eu_te_amo'
 
     # Registrar blueprints
     app.register_blueprint(index_bp)  # Rota principal '/'
