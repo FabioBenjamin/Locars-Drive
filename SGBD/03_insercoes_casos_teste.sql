@@ -1,10 +1,11 @@
 /* ============================================================
  Arquivo: 03_insercoes_casos_teste.sql
- Autor(es): Fabio Benjamin; Almir Silva; Gabriel Paiva
+ Autor(es): Benjamin, Fabio; Silva, Almir; Paiva, Gabriel
  Trabalho: LocarsDrive
- Curso/Turma: Desenvolvimento de Sistemas de Sistemas - 213 Matutino
- SGBD: MySQL 8.0
+ Curso/Turma: Desenvolvimento de Sistemas - 213 Matutino
+ SGBD: MySQL Versão: 8.0
  Objetivo: Inserir dados de teste para validação de regras
+ Execução esperada: após inserções básicas
  ============================================================ */
  
  
