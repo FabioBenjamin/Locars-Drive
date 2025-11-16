@@ -1,10 +1,11 @@
 /* ============================================================
  Arquivo: 20_triggers.sql
- Autor(es): Fabio Benjamin; Almir Silva; Gabriel Paiva 
+ Autor(es): Benjamin, Fabio; Silva, Almir; Paiva, Gabriel
  Trabalho: LocarsDrive
  Curso/Turma: Desenvolvimento de Sistemas - 213 Matutino
- SGBD: MySQL 8.0
+ SGBD: MySQL Versão: 8.0
  Objetivo: Criar triggers para automatizar regras de negócio
+ Execução esperada: após criação das tabelas e inserções básicas
  ============================================================ */
 
 -- Trigger 1: Validação de CPF antes de adiciona-lo a um usuário
