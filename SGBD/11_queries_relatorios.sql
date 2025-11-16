@@ -1,10 +1,11 @@
 /* ============================================================
  Arquivo: 11_queries_relatorios.sql
- Autor(es): Fabio Benjamin; Almir Silva; Gabriel Paiva
+ Autor(es): Benjamin, Fabio; Silva, Almir; Paiva, Gabriel
  Trabalho: LocarsDrive
- Curso/Turma: Desenvolvimento de Sistemas - 213 Matutino 
- SGBD: MySQL 8.0
+ Curso/Turma: Desenvolvimento de Sistemas - 213 Matutino
+ SGBD: MySQL Versão: 8.0
  Objetivo: Relatórios do sistema e consultas analíticas
+ Execução esperada: após criação das tabelas e inserções de teste
  ============================================================ */
 
 -- Relatorio 1: Quantidade de usuários por tipo
