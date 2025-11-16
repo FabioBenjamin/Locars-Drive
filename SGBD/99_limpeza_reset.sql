@@ -1,12 +1,13 @@
 /* ============================================================
  Arquivo: 99_limpeza_reset.sql
- Autor(es): Fabio Benjamin; Almir Silva; Gabriel Paiva
+ Autor(es): Benjamin, Fabio; Silva, Almir; Paiva, Gabriel
  Trabalho: LocarsDrive
- Curso/Turma: Desenvolvimento de Sistemas - 213 Matutino 
- SGBD: MySQL 8.0
+ Curso/Turma: Desenvolvimento de Sistemas - 213 Matutino
+ SGBD: MySQL Versão: 8.0
  Objetivo: Resetar todas as tabelas para novo ciclo de testes
+ Execução esperada: após todas as verificações finais
  ============================================================ */
- 
+
 -- Observações
 	-- Rodando os comandos o banco ficará completamente vazio não possuindo tabelas e dados
 	-- Você precisará executar novamente o script de criação das tabelas (01_modelo_fisico) para voltar o banco
