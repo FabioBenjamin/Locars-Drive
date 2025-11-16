@@ -118,7 +118,7 @@ CREATE TABLE Tipo_Veiculo (
 );
 
 CREATE TABLE Usuario_ (
-    Email varchar(255) NOT NULL UNIQUE,
+    Email varbinary(255) NOT NULL UNIQUE,
     Nome_Completo varchar(255) ,
     Senha varchar(255) NOT NULL,
     id_Usuario int NOT NULL auto_increment,
