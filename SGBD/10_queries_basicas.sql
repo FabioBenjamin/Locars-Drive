@@ -58,3 +58,15 @@ select id_Usuario,
 from Usuario_
 
 order by Nome_Completo asc;
+
+-- Consulta 6: Avaliação
+
+SELECT 
+    v.id_veiculo,
+    v.placa,
+    ROUND(AVG(a.nota), 2) AS media,
+    COUNT(a.id_avaliacao) AS total_avaliacoes
+FROM avaliacao a
+JOIN veiculo v ON v.id_veiculo = a.id_veiculo
+GROUP BY v.id_veiculo
+ORDER BY media DESC, total_avaliacoes DESC;
