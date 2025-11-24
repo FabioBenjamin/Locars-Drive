@@ -8,6 +8,7 @@
  Execução esperada: após criação do modelo físico
  ============================================================ */
 
+
 -- Inserção de funções de usuários
 -- Cada função representa um tipo de usuário no sistema (Cliente, Funcionário, Gerente, Admin, Supervisor)
 insert into funcao (id_Funcao, nome_funcao_, descricao)
@@ -60,15 +61,18 @@ values
 
 -- Inserção de usuários com senha criptografada (SHA2)
 -- O campo senha agora está seguro e não armazenado em texto puro
-insert into usuario_ 
-(email, nome_completo, senha, data_nasc, cpf, id_cliente, cnh, cargo, id_funcionario, id_admin, usuario__tipo, fk_funcao_id_funcao, fk_cidade_id_cidade)
-values
-(AES_ENCRYPT('joao@email.com', 'chaveSegura123'), 'João Silva', SHA2('senha123', 256), '1990-05-12', '12345678901', 1, 'ABC12345678', 'Cliente', 101, 201, 1, 1, 1),
-(AES_ENCRYPT('maria@email.com', 'chaveSegura123'), 'Maria Souza', SHA2('senha456', 256), '1985-07-22', '23456789012', 2, 'DEF23456789', 'Cliente', 102, 202, 1, 2, 2),
-(AES_ENCRYPT('pedro@email.com', 'chaveSegura123'), 'Pedro Lima', SHA2('senha789', 256), '1992-11-03', '34567890123', 3, 'GHI34567890', 'Funcionario', 103, 203, 2, 3, 3),
-(AES_ENCRYPT('ana@email.com', 'chaveSegura123'), 'Ana Oliveira', SHA2('senha321', 256), '1988-02-15', '45678901234', 4, 'JKL45678901', 'Cliente', 104, 204, 1, 4, 4),
-(AES_ENCRYPT('carlos@email.com', 'chaveSegura123'), 'Carlos Pereira', SHA2('senha654', 256), '1995-09-27', '56789012345', 5, 'MNO56789012', 'Funcionario', 105, 205, 2, 5, 5);
+insert into usuario_  
+(email, nome_completo, senha, data_nasc, cpf, id_cliente, cnh, cargo, id_funcionario, id_admin, usuario__tipo, fk_funcao_id_funcao, fk_cidade_id_cidade, Celular)
+VALUES 
+(AES_ENCRYPT('joao@email.com', 'chaveSegura123'), 'João Silva', SHA2('senha123', 256), '1990-05-12', '12345678901', 1, 'ABC12345678', 'Cliente', 101, 201, 1, 1, 1, '11999990001'),
 
+(AES_ENCRYPT('maria@email.com', 'chaveSegura123'), 'Maria Souza', SHA2('senha456', 256), '1985-07-22', '23456789012', 2, 'DEF23456789', 'Cliente', 102, 202, 1, 2, 2, '11999990002'),
+
+(AES_ENCRYPT('pedro@email.com', 'chaveSegura123'), 'Pedro Lima', SHA2('senha789', 256), '1992-11-03', '34567890123', 3, 'GHI34567890', 'Funcionario', 103, 203, 2, 3, 3, '11999990003'),
+
+(AES_ENCRYPT('ana@email.com', 'chaveSegura123'), 'Ana Oliveira', SHA2('senha321', 256), '1988-02-15', '45678901234', 4, 'JKL45678901', 'Cliente', 104, 204, 1, 4, 4, '11999990004'),
+
+(AES_ENCRYPT('carlos@email.com', 'chaveSegura123'), 'Carlos Pereira', SHA2('senha654', 256), '1995-09-27', '56789012345', 5, 'MNO56789012', 'Funcionario', 105, 205, 2, 5, 5, '11999990005');
 
 -- Inserção de adicionais
 -- Extras disponíveis para veículos, como GPS, cadeirinha ou seguro
@@ -90,26 +94,6 @@ values
 (4, 'Atraso na devolução', 100.00, '2025-10-04 09:20:00'),
 (5, 'Não utilização do cinto', 50.00, '2025-10-05 11:10:00');
 
--- Inserção de locações com seguro
--- Contém informações de aluguel de veículo com datas de início, fim, devolução e valor
-insert into locacao_seguro_ (id_locacao, id_seguro, id_Cliente, id_Veiculo, agencia_retirada, data_inicio, data_fim, data_prevista_devolucao, data_devolucao, valor, fk_pagamento__id_pagamento)
-values
-(1, 101, 1, 1001, 'locars Central', '2025-10-01', '2025-10-05', '2025-10-05', '2025-10-05', 500.00, 1),
-(2, 102, 2, 1002, 'locars Norte', '2025-10-03', '2025-10-06', '2025-10-06', '2025-10-06', 650.00, 2),
-(3, 103, 3, 1003, 'locars Sul', '2025-10-04', '2025-10-08', '2025-10-08', '2025-10-08', 800.00, 3),
-(4, 104, 4, 1004, 'locars Leste', '2025-10-02', '2025-10-07', '2025-10-07', '2025-10-07', 720.00, 4),
-(5, 105, 5, 1005, 'locars Oeste', '2025-10-05', '2025-10-10', '2025-10-10', '2025-10-10', 950.00, 5);
-
--- Inserção de agências
--- Localizações físicas de retirada de veículos
-insert into agencia (id_agencia, nome_agencia, num_agencia)
-values
-(1, 'locars Central', 1001),
-(2, 'locars Norte', 1002),
-(3, 'locars Sul', 1003),
-(4, 'locars Leste', 1004),
-(5, 'locars Oeste', 1005);
-
 -- Inserção de categorias de veículos
 -- Diferentes tipos de veículos disponíveis para locação
 insert into categoria (id_categoria, tipos_categorias)
@@ -119,6 +103,40 @@ values
 (3, 'Hatch'),
 (4, 'Picape'),
 (5, 'Esportivo');
+
+
+-- Inserção de veículos
+-- Contém dados de frota, placa, km rodado, status e categoria
+insert into veiculo (id_veiculo, frota, placa, km_rodado, statusveiculo, fk_Categoria_id_Categoria)
+values 
+(1, 1001, 'ABC1234', 12000.50, 'Disponível', 1),
+(2, 1002, 'XYZ5678', 34500.75, 'Indisponível', 2),
+(3, 1003, 'KLM4321', 23000.00, 'Disponível', 1),
+(4, 1004, 'DEF7654', 54000.20, 'Disponível', 3),
+(5, 1005, 'GHI1111', 98765.10, 'Indisponível', 2);
+
+
+-- Inserção de locações com seguro
+-- Contém informações de aluguel de veículo com datas de início, fim, devolução e valor
+insert into locacao_seguro_ (id_locacao, id_seguro, id_Cliente, id_Veiculo, agencia_retirada, data_inicio, data_fim, data_prevista_devolucao, data_devolucao, valor, fk_pagamento__id_pagamento)
+values
+(1, 101, 1, 1, 'locars Central', '2025-10-01', '2025-10-05', '2025-10-05', '2025-10-05', 500.00, 1),
+(2, 102, 2, 2, 'locars Norte', '2025-10-03', '2025-10-06', '2025-10-06', '2025-10-06', 650.00, 2),
+(3, 103, 3, 3, 'locars Sul', '2025-10-04', '2025-10-08', '2025-10-08', '2025-10-08', 800.00, 3),
+(4, 104, 4, 4, 'locars Leste', '2025-10-02', '2025-10-07', '2025-10-07', '2025-10-07', 720.00, 4),
+(5, 105, 5, 5, 'locars Oeste', '2025-10-05', '2025-10-10', '2025-10-10', '2025-10-10', 950.00, 5);
+
+
+-- Inserção de agências
+-- Localizações físicas de retirada de veículos
+insert into Agencia (id_Agencia, nome_Agencia, num_Agencia, id_Cidade)
+values
+(1, 'locars Central', 1001, 1),
+(2, 'locars Norte', 1002, 1),
+(3, 'locars Sul', 1003, 2),
+(4, 'locars Leste', 1004, 2),
+(5, 'locars Oeste', 1005, 3);
+
 
 -- Inserção de modelos de veículos
 insert into modelo (id_modelo, nome_modelo)
@@ -147,20 +165,10 @@ values
 (4, 'Ford'),
 (5, 'Chevrolet');
 
--- Inserção de veículos
--- Contém dados de frota, placa, km rodado, status e categoria
-insert into veiculo (id_veiculo, frota, placa, km_rodado, statusveiculo, fk_Categoria_id_Categoria)
-values 
-(1, 1001, 'ABC1234', 12000.50, 'Disponível', 1),
-(2, 1002, 'XYZ5678', 34500.75, 'Indisponível', 2),
-(3, 1003, 'KLM4321', 23000.00, 'Disponível', 1),
-(4, 1004, 'DEF7654', 54000.20, 'Disponível', 3),
-(5, 1005, 'GHI1111', 98765.10, 'Indisponível', 2);
-
 -- Inserção do histórico de KM dos veículos
 -- Para controle da quilometragem registrada em diferentes datas
-INSERT INTO historico_km (id_Km, id_Veiculo, Km_Registrado, Data_Registro)
-VALUES
+insert into historico_km (id_Km, id_Veiculo, Km_Registrado, Data_Registro)
+values
 (1, 1, 12000.50, '2025-10-01'),
 (2, 2, 34500.75, '2025-10-02'),
 (3, 3, 23000.00, '2025-10-03'),
@@ -169,8 +177,16 @@ VALUES
 
 -- Inserção de locações detalhadas com seguro
 -- Inclui datas de início, fim, previsão de devolução e atraso
-INSERT INTO locacao_seguro_  (id_Locacao, id_Seguro, id_Cliente, id_Veiculo, Data_Prevista_Devolucao, Data_Inicio, Data_Fim, Data_Devolucao, Valor, fk_Pagamento__id_Pagamento)
-VALUES
-(101, 201, 1, 1001, '2025-11-01', '2025-10-28', '2025-11-05', '2025-11-05', 500.00, 1), -- 4 dias de atraso
-(102, 202, 2, 1002, '2025-10-30', '2025-10-25', '2025-10-30', '2025-10-30', 650.00, 2), -- dentro do prazo
-(103, 203, 3, 1003, '2025-11-03', '2025-11-01', '2025-11-03', '2025-11-03', 800.00, 3); -- 1 dia de atraso
+insert into locacao_seguro_ (id_Locacao, id_Seguro, id_Cliente, id_Veiculo, Data_Prevista_Devolucao, Data_Inicio, Data_Fim, Data_Devolucao, Valor, fk_Pagamento__id_Pagamento) 
+values
+(101, 201, 1, 1, '2025-11-01', '2025-10-28', '2025-11-05', '2025-11-05', 500.00, 1),
+(102, 202, 2, 2, '2025-10-30', '2025-10-25', '2025-10-30', '2025-10-30', 650.00, 2),
+(103, 203, 3, 3, '2025-11-03', '2025-11-01', '2025-11-03', '2025-11-03', 800.00, 3);
+
+insert into avaliacao (id_veiculo, id_usuario, nota, comentario)
+values
+(1, 1, 5, 'Veículo excelente!'),
+(2, 2, 4, 'Muito bom, apenas alguns detalhes.'),
+(3, 3, 3, 'Poderia ser melhor, mas funcionou.'),
+(1, 4, 5, 'Tudo perfeito. Recomendo!'),
+(2, 5, 2, 'Tive problemas com a limpeza.');
